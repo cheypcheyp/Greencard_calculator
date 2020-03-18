@@ -1,0 +1,294 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Greencard Calculator</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+        <style type="text/css">
+
+            .calculator {
+                font-family: 'Roboto',Arial,sans-serif;    
+                width: auto;
+                height: auto;
+                padding: 20px;
+            }
+
+            @media only screen and (min-width: 320px) and (max-width: 479px){
+                .calculator {
+                    padding: 10px;
+                }
+            }
+
+            @media only screen and (min-width: 480px) and (max-width: 639px){
+                .calculator {
+                    padding: 10px;
+                }
+            }
+            
+            @media only screen and (min-width: 640px) and (max-width: 959px){
+                .calculator {
+                    padding: 10px;
+                }
+            }
+
+            .box {
+                font-size: 16px;
+                font-weight: 400;
+                height: 55px;
+                width: 465px;
+                margin-bottom: 20px;
+                padding-left: 5px;
+                border-radius: 0px;
+                border: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+	            -o-appearance: none;
+		        appearance: none;
+                background-image: url('https://image.flaticon.com/icons/svg/32/32195.svg'),
+                linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+                background-repeat: no-repeat, repeat;
+                background-position: right .7em top 50%;
+                background-size: .65em auto;
+            }
+
+            .box:invalid { 
+                color: gray; 
+                } 
+
+            /* Hide arrow icon in IE browsers */
+            .box::-ms-expand {
+                display: none;
+            }
+          
+            /* Focus style */
+            .box:focus {
+                border-color: #aaa;
+                box-shadow: 0 0 1px 3px gray;
+                box-shadow: 0 0 0 3px -moz-mac-focusring;
+                color: #222; 
+                outline: none;
+            }
+            /* Disabled styles */
+            .box:disabled, .box[aria-disabled=true] {
+                color: graytext;
+                background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+                linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+            }
+
+            .box:disabled:hover, .box[aria-disabled=true] {
+                border-color: #fff;
+            }
+
+            @media only screen and (min-width: 320px) and (max-width: 479px){
+                .box {
+                    font-size: 14px;
+                    height: 40px;
+                    width: 240px;
+                }
+            } 
+            
+            @media only screen and (min-width: 480px) and (max-width: 640px){
+                .box {
+                    font-size: 14px;
+                    height: 40px;
+                    width: 410px;
+                }
+            }
+            
+             @media only screen and (min-width: 641px) and (max-width: 959px) {
+                .box {
+                    height: 40px;
+                    width: 410px;
+                }
+            }
+
+            @media only screen and (min-width: 960px) and (max-width: 1199px) {
+                .box {
+                    height: 38px;
+                    width: 408px;
+                }
+            }
+
+            .output {
+               padding: 8px 15px;
+               width: 210px;
+               height: 50px;
+               background-color: #336D3A;
+               color: #fff;
+               font-size: 28px;
+               border-radius: 0px;
+            }
+
+            @media only screen and (min-width: 320px) and (max-width: 479px){
+            .output {
+                    font-size: 22px;
+                    width: 210px;
+                    height: 45px;
+                }
+            }    
+            @media only screen and (min-width: 480px) and (max-width: 639px){
+                .output {
+                    font-size: 22px;
+                    width: 180px;
+                    height: 45px;
+                }
+            }
+            
+            @media only screen and (min-width: 640px) and (max-width: 959px) {
+                .output {
+                    font-size: 24px;
+                    width: 200px;
+                    height: 50px;
+                }
+            }
+            
+            @media only screen and (min-width: 960px) and (max-width: 1199px) {
+                .output {
+                    font-size: 24px;
+                    width: 210px;
+                    height: 52px;
+                }
+            }
+           
+            .total {
+                margin-top: 10px;
+            }
+
+            #add_text {
+                font-size: 9px;
+                font-weight: 500;
+                color: #fff;
+                opacity: 80%;
+                float: right;
+                width: 90px;
+                margin-bottom: 8px;
+                margin-right: 1px;
+                margin-left: 2px;
+            }
+
+            @media only screen and (min-width: 320px) and (max-width: 480px){
+                #add_text {
+                    font-size: 8px;
+                }
+            }
+            @media only screen and (min-width: 480px) and (max-width: 640px){
+                #add_text {
+                    font-size: 8px;
+                    margin-right: 0px;
+                }
+                #result {
+                    padding-right: 5px;
+                }
+            }    
+                
+            @media only screen and (min-width: 640px) and (max-width: 960px) {
+                 #add_text {
+                    margin-right: 0px;
+                }
+                #result {
+                    padding-right: 5px;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <form class="calculator" id="calculator" method="GET">
+            <section>
+                <select class="box" id="vehicle_type" name="vehicle_type" required>
+                    <option value="" disabled selected>ТИП ТС</option>
+                    <option value="car">Легковой автомобиль</option>
+                    <option value="car_trailer">Прицеп к легковому автомобилю</option>
+                    <option value="truck">Грузовой автомобиль, тягач</option>
+                    <option value="truck_trailer">Прицеп и полуприцеп к грузовому автомобилю и тягачу</option>
+                    <option value="bus">Автобус</option>
+                    <option value="moto">Мотоцикл, мотороллер, мотоколяска или мопед</option>
+                    <option value="agr_car">Сельскохозяйственная и строительная техника</option>
+                </select>
+            </section>
+            <section>
+                <select class="box" id="time" name="time" required>
+                    <option value="" disabled selected>СРОК ДЕЙСТВИЯ ПОЛИСА</option>
+                    <option value="0" >15 дней</option>
+                    <option value="1">1 месяц</option>
+                    <option value="2">2 месяца</option>
+                    <option value="3">3 месяца</option>
+                    <option value="4">4 месяца</option>
+                    <option value="5">5 месяцев</option>
+                    <option value="6">6 месяцев</option>
+                    <option value="7">7 месяцев</option>
+                    <option value="8">8 месяцев</option>
+                    <option value="9">9 месяцев</option>
+                    <option value="10">10 месяцев</option>
+                    <option value="11">11 месяцев</option>
+                    <option value="12">12 месяцев</option>
+                </select>
+            </section>
+            <section>
+                <select class="box" id="where" name="where" required>
+                    <option value="" disabled selected>ЗОНА ДЕЙСТВИЯ</option>
+                    <option value="all">Все страны</option>
+                    <option value="lim">Беларусь, Молдова, Украина</option>
+                </select>
+            </section>
+            <div class="output">
+                <section class="total">
+                        <span id="result">0</span>
+                        <span id="add_text">Единая цена Российского союза автостраховщиков</span>
+                </section>
+            </div>
+        </form>
+        <script type="text/javascript">
+            const data = {
+                all: {
+                    car: [2320, 4420, 8220, 11590, 14330, 15590, 16860, 17700, 18540, 19380, 20020, 20440, 21070],
+                    car_trailer: [690, 1320, 2460, 3470, 4280, 4660, 5040, 5290, 5540, 5800, 5990, 6110, 6300],
+                    truck: [3870, 7380, 13710, 19340, 23910, 26020, 28130, 29540, 30940, 32350, 33400, 34110, 35160],
+                    truck_trailer: [780, 1480, 2750, 3880, 4790, 5210, 5640, 5920, 6200, 6480, 6690, 6840, 7050],
+                    bus: [6640, 11900, 19750, 27600, 35450, 43290, 51140, 58990, 66840, 74680, 82530, 90380, 98230],
+                    moto: [1160, 2210, 4110, 5800, 7170, 7800, 8430, 8850, 9270, 9700, 10010, 10220, 10540],
+                    agr_car: [1410, 2700, 5020, 7070, 8750, 9520, 10290, 10800, 11320, 11830, 12220, 12480, 12860]
+                },
+                lim: {
+                    car: [790, 1050, 1580, 2110, 2640, 3160, 3690, 3960, 4220, 4480, 4750, 5010, 5270],
+                    car_trailer: [240, 320, 470, 630, 790, 950, 1100, 1180, 1260, 1340, 1420, 1500, 1580],
+                    truck: [1340, 1790, 2690, 3590, 4480, 5380, 6270, 6720, 7170, 7620, 8070, 8520, 8960],
+                    truck_trailer: [270, 360, 540, 720, 900, 1070, 1250, 1340, 1430, 1520, 1610, 1700, 1790],
+                    bus: [1650, 2960, 4910, 6860, 8810, 10770, 12720, 14670, 16620, 18570, 20520, 22470, 24430],
+                    moto: [390, 520, 780, 1040, 1300, 1560, 1820, 1950, 2080, 2210, 2340, 2470, 2600],
+                    agr_car: [480, 640, 970, 1290, 1610, 1930, 2260, 2420, 2580, 2740, 2900, 3060, 3220]
+                }
+            };
+        
+             let veh = null;
+             let period = null;
+             let zone = null;
+
+             const changeText = () => {
+               if (veh !== null && period !== null && zone !== null) {
+                 const text = data[zone][veh][period];
+                 document.getElementById("result").textContent = text + ' ₽';
+               };
+               
+             };
+             const changeZone = (event) => {
+                zone = event.target.value;
+                changeText();
+             };
+
+             const changeVeh = (event) => {
+                 veh = event.target.value;
+                 changeText();
+             };
+
+             const changePeriod = (event) => {
+                 period = event.target.value;
+                 changeText();
+             };
+
+             document.getElementById("where").addEventListener("change", changeZone);
+             document.getElementById("vehicle_type").addEventListener("change", changeVeh);
+             document.getElementById("time").addEventListener("change", changePeriod);
+        </script>
+    </body>
+</html>
